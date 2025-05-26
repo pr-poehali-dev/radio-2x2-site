@@ -192,9 +192,9 @@ const Index = () => {
             Новости радио
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl">
+            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group hover:bg-white/90">
               <CardHeader>
-                <CardTitle className="text-black">
+                <CardTitle className="text-black group-hover:text-red-600 transition-colors duration-300">
                   Новый сезон программы "Утренний Микс"
                 </CardTitle>
                 <CardDescription className="text-gray-600">
@@ -202,16 +202,16 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700">
+                <p className="text-gray-700 group-hover:text-gray-800 transition-colors duration-300">
                   Стартует обновленная версия популярной утренней программы с
                   новыми рубриками и сюрпризами для слушателей.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl">
+            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group hover:bg-white/90">
               <CardHeader>
-                <CardTitle className="text-black">
+                <CardTitle className="text-black group-hover:text-red-600 transition-colors duration-300">
                   Интервью с группой "Время"
                 </CardTitle>
                 <CardDescription className="text-gray-600">
@@ -219,16 +219,16 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700">
+                <p className="text-gray-700 group-hover:text-gray-800 transition-colors duration-300">
                   Эксклюзивное интервью с участниками популярной группы о новом
                   альбоме и предстоящих концертах.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl">
+            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group hover:bg-white/90">
               <CardHeader>
-                <CardTitle className="text-black">
+                <CardTitle className="text-black group-hover:text-red-600 transition-colors duration-300">
                   Радио 2x2 - лучшая станция года
                 </CardTitle>
                 <CardDescription className="text-gray-600">
@@ -236,7 +236,7 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700">
+                <p className="text-gray-700 group-hover:text-gray-800 transition-colors duration-300">
                   Наша радиостанция получила награду "Лучшая радиостанция года"
                   на премии "Радиоволна 2025".
                 </p>
@@ -251,44 +251,66 @@ const Index = () => {
             Наши ведущие
           </h3>
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl">
+            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group hover:bg-white/90">
               <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="User" size={36} className="text-white" />
+                <div className="w-24 h-24 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:from-red-700 group-hover:to-red-800 transition-all duration-300 group-hover:scale-110">
+                  <Icon
+                    name="User"
+                    size={36}
+                    className="text-white group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
-                <h4 className="text-xl font-bold text-black mb-2">DJ Alex</h4>
-                <p className="text-red-600 font-semibold mb-2">Утренний Микс</p>
-                <p className="text-gray-700 text-sm">
+                <h4 className="text-xl font-bold text-black mb-2 group-hover:text-red-600 transition-colors duration-300">
+                  DJ Alex
+                </h4>
+                <p className="text-red-600 font-semibold mb-2 group-hover:text-red-700 transition-colors duration-300">
+                  Утренний Микс
+                </p>
+                <p className="text-gray-700 text-sm group-hover:text-gray-800 transition-colors duration-300">
                   Опытный ведущий с 10-летним стажем. Зажигает утро энергией и
                   хорошим настроением.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl">
+            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group hover:bg-white/90">
               <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="User" size={36} className="text-white" />
+                <div className="w-24 h-24 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:from-red-700 group-hover:to-red-800 transition-all duration-300 group-hover:scale-110">
+                  <Icon
+                    name="User"
+                    size={36}
+                    className="text-white group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
-                <h4 className="text-xl font-bold text-black mb-2">DJ Marina</h4>
-                <p className="text-red-600 font-semibold mb-2">
+                <h4 className="text-xl font-bold text-black mb-2 group-hover:text-red-600 transition-colors duration-300">
+                  DJ Marina
+                </h4>
+                <p className="text-red-600 font-semibold mb-2 group-hover:text-red-700 transition-colors duration-300">
                   Дневной Хит-парад
                 </p>
-                <p className="text-gray-700 text-sm">
+                <p className="text-gray-700 text-sm group-hover:text-gray-800 transition-colors duration-300">
                   Знает все о современной музыке. Представляет лучшие хиты и
                   новинки музыкального мира.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl">
+            <Card className="bg-white/80 backdrop-blur-lg border-gray-300 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer group hover:bg-white/90">
               <CardContent className="p-6 text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="User" size={36} className="text-white" />
+                <div className="w-24 h-24 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:from-red-700 group-hover:to-red-800 transition-all duration-300 group-hover:scale-110">
+                  <Icon
+                    name="User"
+                    size={36}
+                    className="text-white group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
-                <h4 className="text-xl font-bold text-black mb-2">DJ Victor</h4>
-                <p className="text-red-600 font-semibold mb-2">Вечерний Джем</p>
-                <p className="text-gray-700 text-sm">
+                <h4 className="text-xl font-bold text-black mb-2 group-hover:text-red-600 transition-colors duration-300">
+                  DJ Victor
+                </h4>
+                <p className="text-red-600 font-semibold mb-2 group-hover:text-red-700 transition-colors duration-300">
+                  Вечерний Джем
+                </p>
+                <p className="text-gray-700 text-sm group-hover:text-gray-800 transition-colors duration-300">
                   Мастер вечернего эфира. Создает атмосферу релакса с джазом и
                   инди-музыкой.
                 </p>

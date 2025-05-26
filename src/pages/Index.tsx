@@ -8,6 +8,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import AudioVisualizer from "@/components/AudioVisualizer";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const Index = () => {
   const [isPlaying, setIsPlaying] = useState(false);

@@ -1,12 +1,226 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import Icon from "@/components/ui/icon";
 
 const Index = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTrack, setCurrentTrack] = useState({
+    title: "Energy Drive",
+    artist: "Synthwave FM",
+    duration: "3:42",
+  });
+
+  const [liveShow, setLiveShow] = useState({
+    name: "Утренний Микс",
+    host: "DJ Alex",
+    time: "06:00 - 10:00",
+  });
+
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      {/* Header */}
+      <header className="relative z-10 p-6">
+        <nav className="flex items-center justify-between max-w-6xl mx-auto">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
+              <Icon name="Radio" size={24} className="text-white" />
+            </div>
+            <h1 className="text-2xl font-bold text-white">Радио 2x2</h1>
+          </div>
+
+          <div className="hidden md:flex items-center space-x-6">
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Программы
+            </a>
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              Плейлисты
+            </a>
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
+              О нас
+            </a>
+            <Button
+              variant="outline"
+              className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white"
+            >
+              Контакты
+            </Button>
+          </div>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <main className="max-w-6xl mx-auto px-6 py-12">
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center mb-4">
+            <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse mr-2"></div>
+            <span className="text-red-500 font-semibold uppercase tracking-wide">
+              В эфире
+            </span>
+          </div>
+
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-4 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+            РАДИО 2x2
+          </h2>
+
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Лучшая музыка, интересные программы и актуальные новости 24/7
+          </p>
+        </div>
+
+        {/* Player Card */}
+        <Card className="bg-black/20 backdrop-blur-lg border-gray-700 mb-8">
+          <CardContent className="p-8">
+            <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
+              {/* Album Art */}
+              <div className="relative">
+                <div className="w-32 h-32 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
+                  <Icon name="Music" size={48} className="text-white" />
+                </div>
+                {isPlaying && (
+                  <div className="absolute -inset-2 border-2 border-orange-500 rounded-xl animate-pulse"></div>
+                )}
+              </div>
+
+              {/* Track Info */}
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {currentTrack.title}
+                </h3>
+                <p className="text-gray-300 text-lg mb-1">
+                  {currentTrack.artist}
+                </p>
+                <p className="text-gray-400">{currentTrack.duration}</p>
+              </div>
+
+              {/* Controls */}
+              <div className="flex items-center space-x-4">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-300 hover:text-white"
+                >
+                  <Icon name="SkipBack" size={24} />
+                </Button>
+
+                <Button
+                  onClick={togglePlay}
+                  size="lg"
+                  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 w-16 h-16 rounded-full"
+                >
+                  <Icon name={isPlaying ? "Pause" : "Play"} size={28} />
+                </Button>
+
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-300 hover:text-white"
+                >
+                  <Icon name="SkipForward" size={24} />
+                </Button>
+              </div>
+            </div>
+
+            {/* Progress Bar */}
+            <div className="mt-6">
+              <div className="w-full bg-gray-700 rounded-full h-2">
+                <div className="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full w-1/3"></div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Info Cards */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <Card className="bg-black/20 backdrop-blur-lg border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white flex items-center">
+                <Icon name="Mic" className="mr-2 text-orange-500" />
+                Сейчас в эфире
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <h3 className="text-xl font-semibold text-white mb-2">
+                {liveShow.name}
+              </h3>
+              <p className="text-gray-300 mb-1">Ведущий: {liveShow.host}</p>
+              <p className="text-gray-400">{liveShow.time}</p>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-black/20 backdrop-blur-lg border-gray-700">
+            <CardHeader>
+              <CardTitle className="text-white flex items-center">
+                <Icon name="Clock" className="mr-2 text-orange-500" />
+                Следующая программа
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <h3 className="text-xl font-semibold text-white mb-2">
+                Дневной Хит-парад
+              </h3>
+              <p className="text-gray-300 mb-1">Ведущий: DJ Marina</p>
+              <p className="text-gray-400">10:00 - 14:00</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Social Links */}
+        <div className="text-center">
+          <h3 className="text-2xl font-bold text-white mb-6">
+            Следите за нами
+          </h3>
+          <div className="flex justify-center space-x-4">
+            <Button
+              variant="outline"
+              size="icon"
+              className="border-gray-600 text-gray-300 hover:border-orange-500 hover:text-orange-500"
+            >
+              <Icon name="Instagram" size={20} />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className="border-gray-600 text-gray-300 hover:border-orange-500 hover:text-orange-500"
+            >
+              <Icon name="Facebook" size={20} />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className="border-gray-600 text-gray-300 hover:border-orange-500 hover:text-orange-500"
+            >
+              <Icon name="Twitter" size={20} />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className="border-gray-600 text-gray-300 hover:border-orange-500 hover:text-orange-500"
+            >
+              <Icon name="Youtube" size={20} />
+            </Button>
+          </div>
+        </div>
+      </main>
     </div>
   );
 };
